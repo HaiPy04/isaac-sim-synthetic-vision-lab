@@ -22,7 +22,7 @@ By completing this lab, you will master:
 ## 2. OpenUSD Stage Architecture
 
 The stage is located at:
-[`OpenUSD stage/thermal_material_stage.usd`](file:///home/haipy/Desktop/isaac-sim-synthetic-vision-lab/03_thermal_sensor_omnigraph/OpenUSD%20stage/thermal_material_stage.usd)
+[`OpenUSD stage/thermal_material_stage.usd`](<OpenUSD stage/thermal_material_stage.usd>)
 
 ### Stage Prim Hierarchy
 

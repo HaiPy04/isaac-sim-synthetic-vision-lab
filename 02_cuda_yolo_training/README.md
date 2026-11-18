@@ -40,7 +40,7 @@ pip install ultralytics opencv-python numpy
 
 ### 2.2 CUDA & Hardware Audit (`scripts/verify_cuda.py`)
 
-The repository includes [`scripts/verify_cuda.py`](file:///home/haipy/Desktop/isaac-sim-synthetic-vision-lab/02_cuda_yolo_training/scripts/verify_cuda.py) to audit your hardware before launching long training jobs.
+The repository includes [`scripts/verify_cuda.py`](scripts/verify_cuda.py) to audit your hardware before launching long training jobs.
 
 > [!NOTE]
 > If `scripts/verify_cuda.py` is unpopulated (0 bytes) in your clone, use the following production diagnostic script:
@@ -130,7 +130,7 @@ The training module contains two core scripts:
 
 ### 3.1 Model Training (`scripts/yolo_train.py`)
 
-[`scripts/yolo_train.py`](file:///home/haipy/Desktop/isaac-sim-synthetic-vision-lab/02_cuda_yolo_training/scripts/yolo_train.py) configures and initiates the Ultralytics training engine.
+[`scripts/yolo_train.py`](scripts/yolo_train.py) configures and initiates the Ultralytics training engine.
 
 #### Parameter Configuration (Directly from Script)
 - **Dataset Configuration (`DATA_YAML`)**: `"yolo_dataset_final_red_yellow/dataset.yaml"`
@@ -163,7 +163,7 @@ python scripts/yolo_train.py
 
 ### 3.2 Visual Inference Pipeline (`scripts/yolo_inference.py`)
 
-[`scripts/yolo_inference.py`](file:///home/haipy/Desktop/isaac-sim-synthetic-vision-lab/02_cuda_yolo_training/scripts/yolo_inference.py) loads trained weights and runs inference over raw test images.
+[`scripts/yolo_inference.py`](scripts/yolo_inference.py) loads trained weights and runs inference over raw test images.
 
 #### Parameter Configuration (Directly from Script)
 - **Model Checkpoint (`MODEL_PATH`)**: `"models/phase1_rouge_jaune.pt"` (points to trained checkpoint)
@@ -190,10 +190,10 @@ Verify these relative path configurations before executing:
 
 | Script | Variable | Configured Value | Description & Adjustment |
 | :--- | :--- | :--- | :--- |
-| [`yolo_train.py`](file:///home/haipy/Desktop/isaac-sim-synthetic-vision-lab/02_cuda_yolo_training/scripts/yolo_train.py#L8) | `DATA_YAML` | `"yolo_dataset_final_red_yellow/dataset.yaml"` | Ensure this matches the `dataset.yaml` generated in Lab 1 (e.g., `yolo_dataset_final/dataset.yaml` or `yolo_dataset_final_wet_dry/dataset.yaml`). |
-| [`yolo_inference.py`](file:///home/haipy/Desktop/isaac-sim-synthetic-vision-lab/02_cuda_yolo_training/scripts/yolo_inference.py#L9) | `MODEL_PATH` | `"models/phase1_rouge_jaune.pt"` | Update to `"yolo_training_runs/test_run_nano/weights/best.pt"` to test your newly trained model. |
-| [`yolo_inference.py`](file:///home/haipy/Desktop/isaac-sim-synthetic-vision-lab/02_cuda_yolo_training/scripts/yolo_inference.py#L12) | `INPUT_FOLDER` | `"Colin_targets"` | Target directory containing evaluation images. If missing, the script automatically creates an empty folder. |
-| [`yolo_inference.py`](file:///home/haipy/Desktop/isaac-sim-synthetic-vision-lab/02_cuda_yolo_training/scripts/yolo_inference.py#L15) | `OUTPUT_FOLDER` | `"inference_results_phase1"` | Destination folder for visual prediction overlays. |
+| [`yolo_train.py`](scripts/yolo_train.py#L8) | `DATA_YAML` | `"yolo_dataset_final_red_yellow/dataset.yaml"` | Ensure this matches the `dataset.yaml` generated in Lab 1 (e.g., `yolo_dataset_final/dataset.yaml` or `yolo_dataset_final_wet_dry/dataset.yaml`). |
+| [`yolo_inference.py`](scripts/yolo_inference.py#L9) | `MODEL_PATH` | `"models/phase1_rouge_jaune.pt"` | Update to `"yolo_training_runs/test_run_nano/weights/best.pt"` to test your newly trained model. |
+| [`yolo_inference.py`](scripts/yolo_inference.py#L12) | `INPUT_FOLDER` | `"Colin_targets"` | Target directory containing evaluation images. If missing, the script automatically creates an empty folder. |
+| [`yolo_inference.py`](scripts/yolo_inference.py#L15) | `OUTPUT_FOLDER` | `"inference_results_phase1"` | Destination folder for visual prediction overlays. |
 
 ---
 

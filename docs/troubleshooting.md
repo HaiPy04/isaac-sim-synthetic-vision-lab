@@ -47,7 +47,7 @@ cd ~/.local/share/ov/pkg/isaac-sim-4.2.0  # Adjust version (e.g., 4.x or 5.x)
 ## 2. `carb.settings` RTX Post-Processing Key Inconsistencies
 
 ### Symptom
-In [`replicator_noise.py`](file:///home/haipy/Desktop/isaac-sim-synthetic-vision-lab/01_replicator_synthetic_data/scripts/dataset_creation/replicator_noise.py#L12-L27), post-processing effects (`tvNoise`, `motionblur`, `chromaticAberration`) execute without raising Python exceptions, but the output RGB images contain no grain, blur, or aberration.
+In [`replicator_noise.py`](../01_replicator_synthetic_data/scripts/dataset_creation/replicator_noise.py#L12-L27), post-processing effects (`tvNoise`, `motionblur`, `chromaticAberration`) execute without raising Python exceptions, but the output RGB images contain no grain, blur, or aberration.
 
 ### Root Cause
 1. **Setting Namespace Discrepancies**: Different versions of Omniverse Kit and Isaac Sim (e.g., Isaac Sim 2023.x vs. 4.x vs. 5.x) migrate post-processing settings between global Carbonite settings and Hydra/Camera-specific render attributes.
@@ -90,13 +90,13 @@ The ETL script executes without crashing, but outputs `Generated labels for 0 im
 
 ### Root Cause
 1. **Color Space Inversion**: OpenCV's `cv2.imread()` loads images in **BGR** format by default.
-2. If your mask mapping expects RGB tuples (as in [`yolo_etl.py`](file:///home/haipy/Desktop/isaac-sim-synthetic-vision-lab/01_replicator_synthetic_data/scripts/dataset_preparation_for_yolo_training/yolo_etl.py#L19-L26)):
+2. If your mask mapping expects RGB tuples (as in [`yolo_etl.py`](../01_replicator_synthetic_data/scripts/dataset_preparation_for_yolo_training/yolo_etl.py#L19-L26)):
    ```python
    # RGB tuple: Red channel is 140, Blue is 255
    (140, 25, 255): 'green'
    ```
    Failing to run `cv2.cvtColor(mask, cv2.COLOR_BGR2RGB)` causes OpenCV to evaluate the BGR array `(255, 25, 140)`. The tuple check fails for every pixel, resulting in no detected contours.
-3. Conversely, in [`yolo_etl_BB_optimized.py`](file:///home/haipy/Desktop/isaac-sim-synthetic-vision-lab/01_replicator_synthetic_data/scripts/dataset_preparation_for_yolo_training/yolo_etl_BB_optimized.py#L21-L24), the script intentionally keeps the BGR ordering to skip the conversion step:
+3. Conversely, in [`yolo_etl_BB_optimized.py`](../01_replicator_synthetic_data/scripts/dataset_preparation_for_yolo_training/yolo_etl_BB_optimized.py#L21-L24), the script intentionally keeps the BGR ordering to skip the conversion step:
    ```python
    MASK_TO_CLASS_BGR = {
        (255, 25, 140): 'dry',  # Must match BGR ordering from cv2.imread!
@@ -129,7 +129,7 @@ Ensure that:
 ## 4. PyTorch CUDA Driver & Toolkit Mismatches
 
 ### Symptom
-Running [`scripts/verify_cuda.py`](file:///home/haipy/Desktop/isaac-sim-synthetic-vision-lab/02_cuda_yolo_training/scripts/verify_cuda.py) or `yolo_train.py` reports:
+Running [`scripts/verify_cuda.py`](../02_cuda_yolo_training/scripts/verify_cuda.py) or `yolo_train.py` reports:
 ```text
 [ERROR] CUDA is not available to PyTorch.
 ```
@@ -172,7 +172,7 @@ pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
 ## 5. Missing Primvars & Shader Fallbacks in OpenUSD Thermal Stage
 
 ### Symptom
-When opening [`OpenUSD stage/thermal_material_stage.usd`](file:///home/haipy/Desktop/isaac-sim-synthetic-vision-lab/03_thermal_sensor_omnigraph/OpenUSD%20stage/thermal_material_stage.usd) in Isaac Sim:
+When opening [`OpenUSD stage/thermal_material_stage.usd`](<../03_thermal_sensor_omnigraph/OpenUSD stage/thermal_material_stage.usd>) in Isaac Sim:
 - The `/Chess_Bishop` mesh appears completely black or magenta (unshaded) in Thermal mode.
 - The console reports:
   ```text

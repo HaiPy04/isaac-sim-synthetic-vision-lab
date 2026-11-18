@@ -44,9 +44,9 @@ flowchart TD
 
 | Module | Directory | Core Technologies | Primary Deliverables |
 | :--- | :--- | :--- | :--- |
-| **01. Synthetic Data & Parallel ETL** | [`01_replicator_synthetic_data/`](file:///home/haipy/Desktop/isaac-sim-synthetic-vision-lab/01_replicator_synthetic_data/README.md) | `omni.replicator`, `carb.settings`, OpenCV, `ProcessPoolExecutor` | Randomized synthetic image captures, bounding box/polygon segmentation ETL, dataset verifier, unified `dataset.yaml`. |
-| **02. CUDA YOLO Training & Inference** | [`02_cuda_yolo_training/`](file:///home/haipy/Desktop/isaac-sim-synthetic-vision-lab/02_cuda_yolo_training/README.md) | PyTorch, CUDA, cuDNN, Ultralytics YOLOv8 | CUDA diagnostic audit, automated YOLO training pipeline, converged weights (`best.pt`), inference evaluation script. |
-| **03. OpenUSD Thermal Sensor Stage** | [`03_thermal_sensor_omnigraph/`](file:///home/haipy/Desktop/isaac-sim-synthetic-vision-lab/03_thermal_sensor_omnigraph/README.md) | OpenUSD, MDL Shading, OmniGraph (ActionGraph) | Procedural thermal radiation material, temperature/emissivity primvars, dynamic RGB-to-LWIR runtime viewport toggle. |
+| **01. Synthetic Data & Parallel ETL** | [`01_replicator_synthetic_data/`](01_replicator_synthetic_data/README.md) | `omni.replicator`, `carb.settings`, OpenCV, `ProcessPoolExecutor` | Randomized synthetic image captures, bounding box/polygon segmentation ETL, dataset verifier, unified `dataset.yaml`. |
+| **02. CUDA YOLO Training & Inference** | [`02_cuda_yolo_training/`](02_cuda_yolo_training/README.md) | PyTorch, CUDA, cuDNN, Ultralytics YOLOv8 | CUDA diagnostic audit, automated YOLO training pipeline, converged weights (`best.pt`), inference evaluation script. |
+| **03. OpenUSD Thermal Sensor Stage** | [`03_thermal_sensor_omnigraph/`](03_thermal_sensor_omnigraph/README.md) | OpenUSD, MDL Shading, OmniGraph (ActionGraph) | Procedural thermal radiation material, temperature/emissivity primvars, dynamic RGB-to-LWIR runtime viewport toggle. |
 
 ---
 
@@ -149,7 +149,7 @@ Launch Isaac Sim GUI, load `03_thermal_sensor_omnigraph/OpenUSD stage/thermal_ma
 
 Detailed, step-by-step technical guides are maintained inside each individual module directory:
 
-1. [**Lab 1: Replicator Synthetic Data & Parallel YOLO ETL**](file:///home/haipy/Desktop/isaac-sim-synthetic-vision-lab/01_replicator_synthetic_data/README.md)
-2. [**Lab 2: CUDA-Accelerated YOLO Training & Inference**](file:///home/haipy/Desktop/isaac-sim-synthetic-vision-lab/02_cuda_yolo_training/README.md)
-3. [**Lab 3: OpenUSD Thermal Sensor Stage & OmniGraph**](file:///home/haipy/Desktop/isaac-sim-synthetic-vision-lab/03_thermal_sensor_omnigraph/README.md)
-4. [**Diagnostics & Common Pitfalls Guide**](file:///home/haipy/Desktop/isaac-sim-synthetic-vision-lab/docs/troubleshooting.md)
+1. [**Lab 1: Replicator Synthetic Data & Parallel YOLO ETL**](01_replicator_synthetic_data/README.md)
+2. [**Lab 2: CUDA-Accelerated YOLO Training & Inference**](02_cuda_yolo_training/README.md)
+3. [**Lab 3: OpenUSD Thermal Sensor Stage & OmniGraph**](03_thermal_sensor_omnigraph/README.md)
+4. [**Diagnostics & Common Pitfalls Guide**](docs/troubleshooting.md)
