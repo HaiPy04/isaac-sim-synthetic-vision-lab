@@ -17,7 +17,7 @@ The laboratory curriculum is structured into three progressive, production-grade
 ```mermaid
 flowchart TD
     subgraph M1["Module 01: Replicator Synthetic Data & Parallel ETL"]
-        A["OpenUSD Stage Setup<br/>Target Drone / Objects"] --> B["RTX Sensor Degradation<br/>(Motion Blur, ISO Noise, Chromatic Aberration)"]
+        A["OpenUSD Stage Setup<br/>Target Drone / Objects"] --> B["RTX Sensor Degradation<br/>"]
         B --> C["Omni Replicator Capture<br/>(RGB + Semantic Segmentation Masks)"]
         C --> D["Multi-Core ETL Pipeline<br/>(ProcessPoolExecutor Vectorization)"]
         D --> E["YOLO Detection & Polygon Datasets<br/>(dataset.yaml & Split Verification)"]
